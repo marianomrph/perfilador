@@ -1,0 +1,195 @@
+.jackpot-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2.4rem 0 3.2rem;
+  padding-bottom: 3.2rem;
+  border-bottom: 1px solid rgba($color: #FFF, $alpha: 0.2);
+  width: 60rem;
+
+  .jackpot-container-items {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+
+    .jackpot-select {
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .jackpot-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-grow: 1;
+      height: 8rem;
+      margin: 1.2rem;
+      padding: 1.6rem;
+      border: 1px solid rgba($color: #FFF, $alpha: 0.3);
+      border-radius: 0.6rem;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: all .3s ease;
+
+      &:hover {
+        background: rgba($color: #CCC, $alpha: 0.06);
+        border: 1px solid rgba($color: #FFF, $alpha: 0.6);
+      }
+
+      .chevron {
+        width: 1.6rem;
+        height: 8rem;
+        background: url(../img/chevron-down.svg) center no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+
+  .jackpot-button {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    height: 8rem;
+    width: 4rem;
+    padding: 1.2rem;
+    border-radius: 0.6rem;
+    margin-left: 1.2rem;
+    background: rgba($color: #000, $alpha: 0.1);
+    transition: .3s ease;
+    cursor: pointer;
+
+    .circle {
+      position: absolute;
+      top: 1.2rem;
+      left: 1rem;
+      width: 2rem;
+      height: 2rem;
+      background: #FFD526;
+      border-radius: 50%;
+      transition: .3s ease;
+    }
+
+    &:active {
+      .circle {
+        transform: translateY(3.8rem) scale(0.8);
+      }
+    }
+
+    .line {
+      width: 0.1rem;
+      background: rgba($color: #000000, $alpha: 0.2);
+    }
+
+    .note {
+      position: absolute;
+      top: -6.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 5.8rem;
+      height: 5.8rem;
+      border-radius: 50%;
+      background: #623186;
+      text-align: center;
+      transition: background .3s ease;
+      font-weight: 700;
+
+      .arrow {
+        position: absolute;
+        left: 50%;
+        margin-left: -1rem;
+        width: 2rem;
+        height: 2rem;
+        background: url(../img/arrow.svg) center no-repeat;
+        background-size: contain;
+        animation: arrow 1.2s infinite ease-in-out;
+      }
+    }
+
+    &:hover {
+      background: rgba($color: #000000, $alpha: 0.15);
+
+      .note {background: #732BA8;}
+    }
+  }
+}
+
+.jackpot-modal {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+  width: 32rem;
+  height: 40rem;
+  margin-top: -20rem;
+  margin-left: -16rem;
+  background: #FFF;
+  color: #000;
+  z-index: 100;
+  border-radius: 0.6rem;
+  box-shadow: 0 0 1.4rem rgba($color: #000000, $alpha: 0.2);
+  overflow: hidden;
+  animation: jackpotModal 0.4s ease-in-out;
+  animation-iteration-count: 1;
+
+  .jackpot-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #CECECE;
+    color: #623186;
+
+    .close {
+      width: 2rem;
+      height: 2rem;
+      background: url(../img/close.svg) center no-repeat;
+      background-size: contain;
+      cursor: pointer;
+      transition: transform .1s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  ul {
+    flex-grow: 1;
+    overflow-y: scroll;
+    list-style: none;
+    margin: 0;
+
+    li {
+      padding: 2rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background .3s ease;
+
+      &:hover {
+        background: rgba($color: #CECECE, $alpha: 0.4);
+      }
+    }
+  }
+}
+
+@keyframes jackpotModal {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

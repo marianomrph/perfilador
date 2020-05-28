@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  border: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:focus {
+      outline: none;
+  }
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Varela Round', sans-serif;
+  background: #EC5B2F;
+  background: linear-gradient(to bottom,  #EC5B2F,  #EC832f);
+}
+
+#react-app {
+  width: 100%;
+}
+
+.instagram,
+.instagram-orange {
+  position: fixed;
+  top: 1.6rem;
+  right: 1.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url(../img/ig.svg) center no-repeat;
+  background-size: contain;
+  animation: fadeDown 0.4s ease-in-out;
+  animation-iteration-count: 1;
+  -moz-animation-delay: .5s;
+}
+
+.instagram {
+  background: url(../img/ig.svg) center no-repeat;
+}
+
+.instagram-orange {
+  background: url(../img/ig-orange.svg) center no-repeat;
+}
+
+.w1 {
+  position: fixed;
+  top: 1.6rem;
+  left: 1.2rem;
+  width: 4.8rem;
+  height: 3rem;
+  background: url(../img/w1.svg) center no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  animation: fadeDown 0.4s ease-in-out;
+  animation-iteration-count: 1;
+  -moz-animation-delay: 1s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  color: #FFF;
+  padding: 1.6rem;
+  transition: background .3s ease;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba($color: #000, $alpha: 0.02),
+      rgba($color: #000, $alpha: 0.02) 10px,
+      rgba($color: #000, $alpha: 0) 10px,
+      rgba($color: #000, $alpha: 0.0) 20px
+    ),
+    linear-gradient(
+      to bottom,
+      #EC5B2F,
+      #EC832f
+    );
+
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  .title {
+    width: 32rem;
+    height: 9rem;
+    margin-bottom: 3.2rem;
+    background: url(../img/title.svg) center no-repeat;
+    background-size: contain;
+  }
+
+  p {
+    font-size: 1.3rem;
+    animation: fadeDown 0.4s ease-in-out;
+    animation-iteration-count: 1;
+
+    &.reference {
+      font-family: monospace;
+      color: rgba($color: #FFF, $alpha: 0.8);
+      font-size: 1.2rem;
+      line-height: 1.4;
+      text-align: center;
+      max-width: 50rem;
+    }
+
+    &.monospace {
+      font-family: monospace;
+    }
+  }
+}
+
+.footer {
+  color: #000;
+  opacity: 0.6;
+  animation: fadeUp 0.4s ease-in-out;
+  animation-iteration-count: 1;
+  -moz-animation-delay: 1s;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p, a {
+      text-align: center;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+
+    span:last-child {
+      margin-top: 0.1rem;
+    }
+
+    .github-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+      margin-right: 0.4rem;
+      background: url(../img/github.png) center no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+@keyframes arrow {
+  0% {
+    bottom: -0.8rem;
+  }
+  50% {
+    bottom: -1.6rem;
+  }
+  100% {
+    bottom: -0.8rem;
+  }
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
