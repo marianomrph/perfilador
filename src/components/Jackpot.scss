@@ -7,15 +7,30 @@
   border-bottom: 1px solid rgba($color: #FFF, $alpha: 0.2);
   width: 60rem;
 
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+
   .jackpot-container-items {
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
     align-items: center;
 
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .jackpot-select {
       position: relative;
       flex-grow: 1;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        margin-right: 2rem;
+      }
     }
 
     .jackpot-item {
@@ -60,6 +75,10 @@
     transition: .3s ease;
     cursor: pointer;
 
+    @media (max-width: 768px) {
+      height: 30rem;
+    }
+
     .circle {
       position: absolute;
       top: 1.2rem;
@@ -73,7 +92,7 @@
 
     &:active {
       .circle {
-        transform: translateY(3.8rem) scale(0.8);
+        transform: translateY(26rem) scale(0.8);
       }
     }
 
@@ -120,14 +139,6 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  top: 50%;
-  bottom: 50%;
-  left: 50%;
-  right: 50%;
-  width: 32rem;
-  height: 40rem;
-  margin-top: -20rem;
-  margin-left: -16rem;
   background: #FFF;
   color: #000;
   z-index: 100;
@@ -136,6 +147,25 @@
   overflow: hidden;
   animation: jackpotModal 0.4s ease-in-out;
   animation-iteration-count: 1;
+
+  @media (min-width: 768px) {
+    top: 50%;
+    bottom: 50%;
+    left: 50%;
+    right: 50%;
+    width: 32rem;
+    height: 40rem;
+    margin-top: -20rem;
+    margin-left: -16rem;
+  }
+
+  @media (max-width: 768px) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 0;
+  }
 
   .jackpot-modal-header {
     display: flex;
