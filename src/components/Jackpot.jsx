@@ -6,29 +6,26 @@ import './Jackpot.scss';
 const ROTATION_INTERVAL_MILLISECONDS = 100;
 const TOTAL_JACKPOT_DURATION_MILLISECONDS = 3000;
 
+const GENRE_OPTIONS = [
+	'Drama',
+	'Terror',
+	'Suspenso',
+	'Comedia',
+	'Erótico'
+];
+
 const TIME_OPTIONS = [
-	'En los años 1600',
-	'La época de los dinosaurios',
-	'El futuro lejano',
-	'La segunda guerra mundial'
+	'Pasado',
+	'Presente',
+	'Futuro'
 ];
-
-const SPACE_OPTIONS = [
-	'Argentina',
-	'Europa, una luna de Júpiter',
-	'Titán, una luna de Saturno',
-	'Un bosque encantado'
-];
-
-const ADJECTIVE_OPTIONS = [ 'Sombrío', 'Caliente', 'Frío', 'Húmedo', 'Rápido' ];
 
 class Jackpot extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			timeLabel: '',
-			spaceLabel: '',
-			adjectiveLabel: ''
+			genreLabel: '',
+			timeLabel: ''
 		};
 	}
 
@@ -54,16 +51,13 @@ class Jackpot extends Component {
 
 	randomRotation() {
 		// Get random timeLabel
-		const randomTimeLabelIndex = Math.floor(Math.random() * TIME_OPTIONS.length);
+		const randomGenreLabelIndex = Math.floor(Math.random() * GENRE_OPTIONS.length);
 		// Get random spaceLabel
-		const randomSpaceLabelIndex = Math.floor(Math.random() * TIME_OPTIONS.length);
-		// Get random adjectiveLabel
-		const randomAdjectiveLabelIndex = Math.floor(Math.random() * TIME_OPTIONS.length);
+		const randomTimeLabelIndex = Math.floor(Math.random() * GENRE_OPTIONS.length);
 
 		this.setState({
-			timeLabel: TIME_OPTIONS[randomTimeLabelIndex],
-			spaceLabel: SPACE_OPTIONS[randomSpaceLabelIndex],
-			adjectiveLabel: ADJECTIVE_OPTIONS[randomAdjectiveLabelIndex]
+			genreLabel: TIME_OPTIONS[randomGenreLabelIndex],
+			timeLabel: GENRE_OPTIONS[randomTimeLabelIndex],
 		});
 	}
 
@@ -74,28 +68,22 @@ class Jackpot extends Component {
 	}
 
 	render() {
-		const { timeLabel, spaceLabel, adjectiveLabel } = this.state;
+		const { timeLabel, genreLabel } = this.state;
 
 		return (
 			<div className="jackpot-container">
 				<div className="jackpot-container-items">
 					<JackpotItem
-						defaultLabel="Tiempo"
+						defaultLabel="Género"
+						optionLabel={genreLabel}
+						options={GENRE_OPTIONS}
+						onSelect={this.onSelect.bind(this, 'genreLabel')}
+					/>
+					<JackpotItem
+						defaultLabel="Tiempo / Espacio"
 						optionLabel={timeLabel}
 						options={TIME_OPTIONS}
 						onSelect={this.onSelect.bind(this, 'timeLabel')}
-					/>
-					<JackpotItem
-						defaultLabel="Espacio"
-						optionLabel={spaceLabel}
-						options={SPACE_OPTIONS}
-						onSelect={this.onSelect.bind(this, 'spaceLabel')}
-					/>
-					<JackpotItem
-						defaultLabel="Adjetivo"
-						optionLabel={adjectiveLabel}
-						options={ADJECTIVE_OPTIONS}
-						onSelect={this.onSelect.bind(this, 'adjectiveLabel')}
 					/>
 				</div>
 				<div className="jackpot-button" onClick={this.startJackpot.bind(this)}>
